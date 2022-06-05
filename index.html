@@ -7,26 +7,44 @@
     <title>Document</title>
   </head>
 
-  <body >
+  <body>
     <script>
-        function same(arr1,arr2){
-            if (arr1.length!==arr2.length){
-                return false
-            }
-            for (let i=0; i<arr1.length; i++){
-                let curentIndex=arr2.indexOf(arr1[i]**2)
+      //     function same(arr1,arr2){
+      //         if (arr1.length!==arr2.length){
+      //             return false
+      //         }
+      //         for (let i=0; i<arr1.length; i++){
+      //             let curentIndex=arr2.indexOf(arr1[i]**2)
 
-                if (curentIndex==-1){
-                    return false
-                }
-                arr2.splice(curentIndex,1)
-            }
-            return true
+      //             if (curentIndex==-1){
+      //                 return false
+      //             }
+      //             arr2.splice(curentIndex,1)
+      //         }
+      //         return true
 
+      //     }
+      //   console.log(same([3,2,1],[9,4,1]))
+      // let arr1 ="hassnain"
+      // console.log(arr1.indexOf("n")
+
+      // console.log(result)
+      // "hassnain"
+      function count(str) {
+let result = {};
+        for (let i = 0; i < str.length; i++) {
+         
+          if (result[str[i]] > 0) {
+            result[str[i]]++;
+          } else {
+            result[str[i]] = 1;
+            
+          }
+         
         }
-      console.log(same([3,2,1],[9,4,1]))  
-// let arr1 ="hassnain"
-// console.log(arr1.indexOf("n"))
+        return result;
+      } 
+      console.log(count("hhhjk"));
     </script>
   </body>
 </html>
