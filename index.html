@@ -45,47 +45,61 @@
       //         return result;
       //       }
       //       console.log(count("hhhjk"));
-    //   let count1 = {};
-    //   arr1 = "hassnain";
-      function same(arr1, arr2) {
-          if (arr1.lenght!==arr2.lenght)
-          {
-              return new Error("arry are not equal in size")
-          }
-        let count1={};
-        let count2={};
+      //   let count1 = {};
+      //   arr1 = "hassnain";
+      // function same(arr1, arr2) {
+      //     if (arr1.lenght!==arr2.lenght)
+      //     {
+      //         return new Error("arry are not equal in size")
+      //     }
+      //   let count1={};
+      //   let count2={};
 
-        for (let val of arr1) {
-          count1[val] = (count1[val] || 0) + 1;
+      //   for (let val of arr1) {
+      //     count1[val] = (count1[val] || 0) + 1;
+      //   }
+      //       console.log(count1);
+      //   for (let val of arr2) {
+      //     count1[val] = (count1[val] || 0) + 1;
+      //   }
+      //   for (let key in count1){
+      //       if (!(key**2 in count2) ){
+      //           return false
+      //       }
+
+      //   }
+      //   return true
+      //   // for ()
+      // }
+      // console.log(same([4,4,2],[16,16,4]))
+
+      // arr1="hassnain"
+      // let count2={name:"hassnain"}
+      //     for (let val in count2) {
+      //     //   count1[val] = (count1[val] || 0) + 1;
+      //     console.log(val)
+      // }
+
+      function anagram(str,str1){
+        if (str.length!==str1.length){
+          return false
         }
-            console.log(count1);
-        for (let val of arr2) {
-          count1[val] = (count1[val] || 0) + 1;
-        }
-        for (let key in count1){
-            if (!(key**2 in count2) ){
-                return false
-            }
-
-
-
-
-
-          
-
-        }
-        return true
-        // for ()
+        let result="";
+      for (let i = str.length-1; i >=0;  i--) {
+        result+=str[i]
+      
       }
-      console.log(same([4,4,2],[16,16,4]))
+      if (result===str1){
+          return true
+        }else{
+          return false
+        }
+     
+          console.log(result)
 
-  
-    // arr1="hassnain"
-    // let count2={name:"hassnain"}
-    //     for (let val in count2) {
-    //     //   count1[val] = (count1[val] || 0) + 1;
-    //     console.log(val)
-        // }
+    }
+    console.log(anagram("hass","ssah"))
+
 
     </script>
   </body>
