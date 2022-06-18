@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-
-  <body>
-    <script>
       //     function same(arr1,arr2){
       //         if (arr1.length!==arr2.length){
       //             return false
@@ -144,15 +133,35 @@
 // }
 // console.log(countuniquevaluesinarry([1,1,1,2,2,2,3,4,5])) 
 
-arr=[1,1,2,3,4,4,5]
-let result =""
-for(let i=arr.length-1; i>=0;i-- ){
-result+=arr[i]
+// arr=[1,1,2,3,4,4,5]
+// // let result =""
+// for(let i=arr.length-1; i>=0;i-- ){
+// // result+=arr[i]
 // console.log(i)
+// }
+// console.log(result)
+
+// for (let i=0; i<4-3; i++){
+//     console.log(i)
+// }
+
+function maxsum(arr,num){
+    max=0
+    for(let i=0; i<=arr.length-1;  i++){
+        // console.log(i<arr.length-num+1,"i")
+        console.log(i)
+        temp=0
+        for(let j=0; j<num; j++){
+            temp+=arr[i+j]
+        }
+        if(temp>max){
+            max=temp
+        }
+        // console.log(temp,max);
+    }
+    return max 
 }
-console.log(result)
+console.log(maxsum([1,2,5,2,8,1,5],3));
 
 
-    </script>
-  </body>
-</html>
+
