@@ -145,23 +145,47 @@
 //     console.log(i)
 // }
 
-function maxsum(arr,num){
-    max=0
-    for(let i=0; i<=arr.length-1;  i++){
-        // console.log(i<arr.length-num+1,"i")
-        console.log(i)
-        temp=0
-        for(let j=0; j<num; j++){
-            temp+=arr[i+j]
-        }
-        if(temp>max){
-            max=temp
-        }
-        // console.log(temp,max);
+// function maxsum(arr,num){
+//     max=0
+//     for(let i=0; i<=arr.length-1;  i++){
+//         // console.log(i<arr.length-num+1,"i")
+//         console.log(i)
+//         temp=0
+//         for(let j=0; j<num; j++){
+//             temp+=arr[i+j]
+//         }
+//         if(temp>max){
+//             max=temp
+//         }
+//         // console.log(temp,max);
+//     }
+//     return max 
+// }
+// console.log(maxsum([1,2,5,2,8,1,5],3));
+// const usera={}
+
+
+function maxsum(arr,num) {
+    let maxsum = 0;
+    let tempsum = 0;
+    // console.log();
+    for (let i = 0; i < num; i++){
+
+        maxsum += arr[i];
+
     }
-    return max 
+   tempsum=maxsum
+    for (let i = num; i <arr.length; i++) {
+        console.log(i,"i")
+        tempsum=tempsum - arr[i-num]+ arr[num];
+        maxsum=Math.max(maxsum,tempsum);
+        }
+        return maxsum;
 }
-console.log(maxsum([1,2,5,2,8,1,5],3));
+console.log(maxsum([2,6,9,2,1,8,5,6,3],3));
+
+
+
 
 
 
