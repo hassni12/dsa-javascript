@@ -179,6 +179,7 @@ function maxsum(arr,num) {
         console.log(i,"i")
         tempsum=tempsum - arr[i-num]+ arr[num];
         maxsum=Math.max(maxsum,tempsum);
+        console.log(maxsum,tempsum)
         }
         return maxsum;
 }
