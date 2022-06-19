@@ -165,28 +165,61 @@
 // const usera={}
 
 
-function maxsum(arr,num) {
-    let maxsum = 0;
-    let tempsum = 0;
-    // console.log();
-    for (let i = 0; i < num; i++){
+// function maxsum(arr,num) {
+//     let maxsum = 0;
+//     let tempsum = 0;
+//     // console.log();
+//     for (let i = 0; i < num; i++){
 
-        maxsum += arr[i];
+//         maxsum += arr[i];
 
+//     }
+//    tempsum=maxsum
+//     for (let i = num; i <arr.length; i++) {
+//         console.log(i,"i")
+//         tempsum=tempsum - arr[i-num]+ arr[i];
+//         maxsum=Math.max(maxsum,tempsum);
+//         console.log(maxsum,tempsum)
+//         }
+//         return maxsum;
+// }
+// console.log(maxsum([2,6,9,2,1,8,5,6,3],3));
+
+
+
+
+// //linear search
+// function findindex(arr,num){
+//     for(let i=0; i<arr.length; i++){
+//         if (arr[i]===num){
+//             return i
+//         }
+        
+//     }
+//     return -1
+
+// }
+// console.log(findindex([1,2,3,4,5,6,7,8,9],9))
+
+
+
+
+function binarySearch(arr,num){
+    min=0;
+    max=arr.length-1; 
+    while (min<=max){
+          middle=Math.floor((min+max)/2)
+     
+    if(arr[middle]>num){
+        max=middle-1
+    }else if (arr[middle]<num) {
+        min=middle+1
+    } else {
+        return middle
+        
     }
-   tempsum=maxsum
-    for (let i = num; i <arr.length; i++) {
-        console.log(i,"i")
-        tempsum=tempsum - arr[i-num]+ arr[num];
-        maxsum=Math.max(maxsum,tempsum);
-        console.log(maxsum,tempsum)
-        }
-        return maxsum;
+    }
+  
+
 }
-console.log(maxsum([2,6,9,2,1,8,5,6,3],3));
-
-
-
-
-
-
+console.log(binarySearch([1,2,3,4,5,6,7,8],2))
