@@ -204,22 +204,83 @@
 
 
 
-function binarySearch(arr,num){
-    min=0;
-    max=arr.length-1; 
-    while (min<=max){
-          middle=Math.floor((min+max)/2)
+// function binarySearch(arr,num){
+//     min=0;
+//     max=arr.length-1; 
+//     while (min<=max){
+//           middle=Math.floor((min+max)/2)
      
-    if(arr[middle]>num){
-        max=middle-1
-    }else if (arr[middle]<num) {
-        min=middle+1
-    } else {
-        return middle
+//     if(arr[middle]>num){
+//         max=middle-1
+//     }else if (arr[middle]<num) {
+//         min=middle+1
+//     } else {
+//         return middle
         
-    }
-    }
+//     }
+//     }
   
 
+// }
+// console.log(binarySearch([1,2,3,4,5,6,7,8],2))
+// function fact(num){
+
+//     if(num===1 || num===0) return 1
+//     return num * fact(num-1)
+
+// }
+// console.log(fact(1))
+
+
+// function factorial(num){
+//     let sum =1
+//     for(let i=num; i>1; i--){
+//     //   console.log(i);
+//         sum*=i
+//         console.log(sum);
+
+//     }
+//     return sum
+// }
+// console.log(factorial(7));
+
+
+// function collect(arr){
+// let result=[]
+//     function helper(help){
+//         if (help.length===0){
+//             return
+//         } 
+//         if (help[0]%2==0){
+//             result.push(help[0])
+//         }
+//            helper(help.slice(1))
+//     }
+//     helper(arr)
+//     return result
+// }
+// // 
+// // arr=[1,2,3,4,5,6,7,8]
+
+// function collect(arr){
+//  let result=[]
+//     for (let i=0; i<arr.length; i++){
+//     if (arr[i]%2==0){
+//         result.push(arr[i])
+//     }
+// }
+// return result
+// }
+// console.log(collect([1,2,3,4,5,6,7,8]));
+function collect(arr,value){
+
+    for (let i=0; i<arr.length; i++) { 
+
+        console.log(i)
+        if (arr[i]===value) {   
+           return i
+        }
+    }
+     return -1
 }
-console.log(binarySearch([1,2,3,4,5,6,7,8],2))
+console.log(collect([5,8,1,100,12,3,12],12));
