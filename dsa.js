@@ -288,24 +288,56 @@
 // }
 // console.log(binarySearch([1, 2, 3, 4, 5, 6, 7, 8], 4));
 
-function naiveString(string,val) {
-     let count=0
-    for (let i=0; i<string.length; i++){
-       
-        for(let j=0; j<val.length; j++){
-            if(string[i+j]!==val[j])break;
-    
-            if (j===val.length-1){
-                // console.log(j,val.length-1);
-                count++;    
+// function naiveString(string,val) {
+//      let count=0
+//     for (let i=0; i<string.length; i=i+1){
+//         for(let j=0; j<val.length; j++){
+//             // console.log(string[i+j],val[j])
+//             if(string[i+j]!==val[j])break;
+//             if (j===val.length-1){
+//                 // console.log(j,val.length-1);
+//                 count++;    
+//             }
+//         }
+//     }
+//   return count
 
-            }
+// }
+// console.log(naiveString("hello hassnain how are you" , "ow"))
+// ababcbda
+// 12345678
 
+// pie table
+// j
+// abab
+//pie table
 
-        }
-      
-    }
-  return count
-
+// 01234
+function cryptographic(pattern,A,B){
+// pattern="hello hassnain how are you"
+// let patternArr=pattern.split('')
+// const arr=patternArr.map((str,index)=>str.charCodeAt(index))
+let arr=[]
+for(let index=0; index<pattern.length; index++){
+     arr.push(pattern.charCodeAt(index))
 }
-console.log(naiveString("hello hassnain how are you" , "ow"))
+console.log(arr);
+array=[1,3,4]
+for (let i = 0; i < array.length; i++) {
+    
+    for (let j = 0; j < array.length; j++) {
+        // for (let z = 0; z < array.length; z++) {
+
+            console.log(i,"i",j,"j")
+            
+        // }       
+    }
+    
+}
+}
+console.log(cryptographic( "hello hassnain how are you"))
+// let arrays = ['cat', 'apple', 'frog'];
+// console.log(JSON.stringify(arrays));
+
+// let final = arrays.map(m=>{return [m]});
+// console.log(JSON.stringify(final))
