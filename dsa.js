@@ -356,7 +356,6 @@
 //   ]),
 // );
 
-
 // array = [[13,5,5],[20,0,13],[5,0,13]];
 // A=[
 //   [1, 2, 2],
@@ -376,14 +375,48 @@
 //       console.log("break");
 //       console.log(array[j][z], A[z][j]);
 
-
-
-
 //     }
 //   }
 //   // console.log(a1);
 // }
 // console.log(m);
 
+// function bubbleSort(array){
+//   let noSwap
+//   for (let  i= 0; i < array.length; i++) {
+//     noSwap=true
+//     for (let j = 0; j < array.length; j++) {
+//       if (array[j]>array[j+1]){
+//         temp=array[j]
+//         array[j]=array[j+1]
+//         array[j+1]=temp
+//         noSwap=false
+//       }
+//     }
+//     if (noSwap) break
+//   }
 
+// return array;
+// }
+// c
 
+function selection(array) {
+  // let min = 0;
+  for (let i = 0; i < array.length; i++) {
+   let min = i
+    for (let j = i+1; j < array.length; j++) {
+      if (array[min] > array[j]) {
+        min=j
+          }
+               
+    }
+    if (i!==min){
+
+      temp=min
+      min=i
+      i=temp
+      }
+  }
+  return array
+}
+console.log(selection([5,3,4,1,2]));
