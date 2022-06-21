@@ -296,7 +296,7 @@
 //             if(string[i+j]!==val[j])break;
 //             if (j===val.length-1){
 //                 // console.log(j,val.length-1);
-//                 count++;    
+//                 count++;
 //             }
 //         }
 //     }
@@ -312,32 +312,78 @@
 // abab
 //pie table
 
-// 01234
-function cryptographic(pattern,A,B){
-// pattern="hello hassnain how are you"
-// let patternArr=pattern.split('')
-// const arr=patternArr.map((str,index)=>str.charCodeAt(index))
-let arr=[]
-for(let index=0; index<pattern.length; index++){
-     arr.push(pattern.charCodeAt(index))
-}
-console.log(arr);
-array=[1,3,4]
-for (let i = 0; i < array.length; i++) {
-    
-    for (let j = 0; j < array.length; j++) {
-        // for (let z = 0; z < array.length; z++) {
+// // 01234
+// function cryptographic(pattern, A, B) {
+//   let arr = [];
+//   for (let i = 0; i < pattern.length; i++) {
+//     arr.push(pattern.charCodeAt(i));
+//   }
+//   let arrayChuks = [];
+//   while (arr.length) arrayChuks.push(arr.splice(0, 3));
+//   // console.log(arrayChuks);
+//   let filledArray = [];
+//   for (let i = 0; i < arrayChuks.length; i++) {
+//     if (arrayChuks[i].length !== 3) {
+//       arrayChuks[i].push(32);
+//       // console.log('not');
+//     }
+//     // console.log(arrayChuks[i]);
 
-            console.log(i,"i",j,"j")
-            
-        // }       
-    }
-    
-}
-}
-console.log(cryptographic( "hello hassnain how are you"))
-// let arrays = ['cat', 'apple', 'frog'];
-// console.log(JSON.stringify(arrays));
+//     filledArray.push(arrayChuks[i]);
+//   }
 
-// let final = arrays.map(m=>{return [m]});
-// console.log(JSON.stringify(final))
+//   console.log(filledArray);
+//   let array = [];
+//   for (let index = 0; index < arr.length; index++) {
+//     array.push();
+//   }
+//   array = [1, 3, 4];
+//   //   console.log(array);
+
+//   for (let i = 0; i < array.length; i++) {
+//     for (let j = 0; j < array.length; j++) {
+//       for (let z = 0; z < array.length; z++) {
+//         // console.log(i,"i",j,"j",z,"z")
+//       }
+//     }
+//   }
+// }
+// console.log(
+//   cryptographic('hello hassnain how are you', [
+//     [1, 2, 2],
+//     [-1, 1, 3],
+//     [1, -1, -4],
+//   ]),
+// );
+
+
+// array = [[13,5,5],[20,0,13],[5,0,13]];
+// A=[
+//   [1, 2, 2],
+//   [-1, 1, 3],
+//   [1, -1, -4],
+// ]
+//     let m=[]
+//     // let /
+// for (let i = 0; i < array.length; i++) {
+//   let a1 =0
+//   for (let j = 0; j < array.length; j++) {
+// //  let a1=0
+//     for (let z = 0; z < array.length; z++) {
+
+//       // console.log(i,"i",j,"j",z,"z")
+//       m.push( A[z][j]*array[j][z])
+//       console.log("break");
+//       console.log(array[j][z], A[z][j]);
+
+
+
+
+//     }
+//   }
+//   // console.log(a1);
+// }
+// console.log(m);
+
+
+
