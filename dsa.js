@@ -400,23 +400,48 @@
 // }
 // c
 
-function selection(array) {
-  // let min = 0;
-  for (let i = 0; i < array.length; i++) {
-   let min = i
-    for (let j = i+1; j < array.length; j++) {
-      if (array[min] > array[j]) {
-        min=j
-          }
-               
-    }
-    if (i!==min){
+// function selection(array) {
+//   // let min = 0;
+//   for (let i = 0; i < array.length; i++) {
+//     let min = i;
+//     for (let j = i + 1; j < array.length; j++) {
+//       console.log(i, 'i', j, 'j');
+//       if (array[min] > array[j]) {
+//         min = j;
+//         console.log('min', array[min]);
+//       }
+//     }
+//     temp = array[min];
+//     array[min] = array[i];
+//     array[i] = temp;
+//     // console.log(temp);
+//   }
+//   return array;
+// }
+// console.log(selection([5, 3, 4, 1, 2]));
 
-      temp=min
-      min=i
-      i=temp
+function insertion(array) {
+  let arr=[]
+  for (let i =1; i < array.length; i++) {
+    let currentval = i;
+    for (let j =  i-1; j >=0; j--) {
+      
+      if (array[j] > currentval) {
+        console.log(i, 'i', j, 'j');
+        array.splice(currentval)
+        console.log("done");
+    //     temp = array[i];
+    // array[i] = array[j];
+    // array[j] = temp;
       }
+      // break
+
+    }
+
+    // console.log(temp);
   }
-  return array
+  return array;
 }
-console.log(selection([5,3,4,1,2]));
+console.log(insertion([5, 3, 4, 1, 2]));
+console.log([1,2,3,4,5,6,7,8].splice(0,3));
+
