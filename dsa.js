@@ -313,73 +313,81 @@
 //pie table
 
 // // 01234
-// function cryptographic(pattern, A, B) {
-//   let arr = [];
-//   for (let i = 0; i < pattern.length; i++) {
-//     arr.push(pattern.charCodeAt(i));
-//   }
-//   let arrayChuks = [];
-//   while (arr.length) arrayChuks.push(arr.splice(0, 3));
-//   // console.log(arrayChuks);
-//   let filledArray = [];
-//   for (let i = 0; i < arrayChuks.length; i++) {
-//     if (arrayChuks[i].length !== 3) {
-//       arrayChuks[i].push(32);
-//       // console.log('not');
-//     }
-//     // console.log(arrayChuks[i]);
+function cryptographic(pattern, A, B) {
+  let arr = [];
+  for (let i = 0; i < pattern.length; i++) {
+    arr.push(pattern.charCodeAt(i));
+  }
+  let arrayChuks = [];
+  while (arr.length) arrayChuks.push(arr.splice(0, 3));
+  // console.log(arrayChuks);
+  let filledArray = [];
+  for (let i = 0; i < arrayChuks.length; i++) {
+    if (arrayChuks[i].length !== 3) {
+      arrayChuks[i].push(32);
+      // console.log('not');
+    }
+    // console.log(arrayChuks[i]);
 
-//     filledArray.push(arrayChuks[i]);
-//   }
+    filledArray.push(arrayChuks[i]);
+  }
 
-//   console.log(filledArray);
-//   let array = [];
-//   for (let index = 0; index < arr.length; index++) {
-//     array.push();
-//   }
-//   array = [1, 3, 4];
-//   //   console.log(array);
+  // console.log(filledArray,"this");
 
-//   for (let i = 0; i < array.length; i++) {
-//     for (let j = 0; j < array.length; j++) {
-//       for (let z = 0; z < array.length; z++) {
-//         // console.log(i,"i",j,"j",z,"z")
-//       }
-//     }
-//   }
-// }
-// console.log(
-//   cryptographic('hello hassnain how are you', [
-//     [1, 2, 2],
-//     [-1, 1, 3],
-//     [1, -1, -4],
-//   ]),
-// );
 
-// array = [[13,5,5],[20,0,13],[5,0,13]];
-// A=[
-//   [1, 2, 2],
-//   [-1, 1, 3],
-//   [1, -1, -4],
-// ]
-//     let m=[]
-//     // let /
-// for (let i = 0; i < array.length; i++) {
-//   let a1 =0
-//   for (let j = 0; j < array.length; j++) {
-// //  let a1=0
-//     for (let z = 0; z < array.length; z++) {
 
-//       // console.log(i,"i",j,"j",z,"z")
-//       m.push( A[z][j]*array[j][z])
-//       console.log("break");
-//       console.log(array[j][z], A[z][j]);
 
-//     }
-//   }
-//   // console.log(a1);
-// }
-// console.log(m);
+
+
+  let array = [];
+  for (let index = 0; index < arr.length; index++) {
+    array.push();
+  }
+
+  // array = [1, 3, 4];
+    // console.log(array," this ");
+
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array.length; j++) {
+      for (let z = 0; z < array.length; z++) {
+        // console.log(i,"i",j,"j",z,"z")
+      }
+    }
+  }
+}
+console.log(
+  cryptographic('hello hassnain how are you', [
+    [1, 2, 2],
+    [-1, 1, 3],
+    [1, -1, -4],
+  ]),
+);
+
+array = [[13,5,5],[20,0,13],[5,0,13]];
+A=[
+  [1, 2, 2],
+  [-1, 1, 3],
+  [1, -1, -4],
+]
+    let m=[]
+    // let /
+for (let i = 0; i < array.length; i++) {
+  let a1 =0
+  for (let j = 0; j < array.length; j++) {
+//  let a1=0
+    for (let z = 0; z < array.length; z++) {
+
+      // console.log(i,"i",j,"j",z,"z")
+      // m.push( A[z][j]*array[j][z])
+      // console.log("break");
+      // console.log(array[j][z], A[z][j]);  
+
+
+    }
+  }
+  // console.log(a1);
+}
+console.log(m);
 
 // function bubbleSort(array){
 //   let noSwap
@@ -420,28 +428,28 @@
 // }
 // console.log(selection([5, 3, 4, 1, 2]));
 
-function insertion(array) {
-  let arr=[]
-  for (let i =1; i < array.length; i++) {
-    let currentval = i;
-    for (let j =  i-1; j >=0; j--) {
+// function insertion(array) {
+//   let arr=[] in linux 
+//   for (let i =1; i < array.length; i++) {
+//     let currentval = i;
+//     for (let j =  i-1; j >=0; j--) {
       
-      if (array[j] > currentval) {
-        console.log(i, 'i', j, 'j');
-        array.splice(currentval)
-        console.log("done");
-    //     temp = array[i];
-    // array[i] = array[j];
-    // array[j] = temp;
-      }
-      // break
+//       if (array[j] > currentval) {
+//         console.log(i, 'i', j, 'j');
+//         array.splice(currentval)
+//         console.log("done");
+//     //     temp = array[i];
+//     // array[i] = array[j];
+//     // array[j] = temp;
+//       }
+//       // break
 
-    }
+//     }
 
-    // console.log(temp);
-  }
-  return array;
-}
-console.log(insertion([5, 3, 4, 1, 2]));
-console.log([1,2,3,4,5,6,7,8].splice(0,3));
+//     // console.log(temp);
+//   }
+//   return array;
+// }
+// console.log(insertion([5, 3, 4, 1, 2]));
+// console.log([1,2,3,4,5,6,7,8].splice(0,3));
 
