@@ -1,4 +1,4 @@
-function cryptographic(pattern, A, B) {
+function cryptographic(pattern, key, inverse_Of_Key) {
   let arr = [];
   for (let i = 0; i < pattern.length; i++) {
     arr.push(pattern.charCodeAt(i));
@@ -13,52 +13,48 @@ function cryptographic(pattern, A, B) {
     filledArray.push(arrayChuks[i]);
   }
   console.log(filledArray);
-  let res = [];
+  let encrypted = [];
   for (let i = 0; i < filledArray.length; i++) {
-    res[i] = [];
-    for (let j = 0; j < A.length; j++) {
+    encrypted[i] = [];
+    for (let j = 0; j < key.length; j++) {
       var sum = 0;
-      for (let z = 0; z < A.length; z++) {
-        sum += filledArray[i][z] * A[z][j];
+      for (let z = 0; z < key.length; z++) {
+        sum += filledArray[i][z] * key[z][j];
       }
-      res[i][j] = sum;
+      encrypted[i][j] = sum;
     }
-    // console.log(a1);
   }
-  console.log(res,"encrypted");
-  let Inverse = [];
-  for (let i = 0; i < res.length; i++) {
-    Inverse[i] = [];
-    for (let j = 0; j < B.length; j++) {
-      var sum = 0;
-      for (let z = 0; z < B.length; z++) {
-        sum += res[i][z] * B[z][j];
+  console.log(encrypted, "encrypted");
+  let decrypted = [];
+  for (let i = 0; i < encrypted.length; i++) {
+    decrypted[i] = [];
+    for (let j = 0; j < inverse_Of_Key.length; j++) {
+      let sum = 0;
+      for (let z = 0; z < inverse_Of_Key.length; z++) {
+        sum += encrypted[i][z] * inverse_Of_Key[z][j];
       }
-      Inverse[i][j] = sum;
-    }
-    // console.log(a1);
-  }
-  console.log(Inverse,"decrypted");
-  let finalResult=[]
-  for (let i = 0; i < Inverse.length; i++) {
-   
-    for (let j = 0; j < B.length; j++) {
-      // console.log(res[i][j])
-      //  console.log(finalResult.push(String.fromCharCode(Inverse[i][j]))); 
-       console.log(String.fromCharCode(Inverse[i][j]));
+      decrypted[i][j] = sum;
     }
   }
-// console.log(finalResult);
+  console.log(decrypted, "decrypted");
+  for (let i = 0; i < decrypted.length; i++) {
+    for (let j = 0; j < inverse_Of_Key.length; j++) {
+      console.log(String.fromCharCode(decrypted[i][j]));
+    }
+  }
 }
 console.log(
-  cryptographic("meet me monday", [
-    [1, -2, 2],
-    [-1, 1, 3],
-    [1, -1, -4],
-  ],
-  [[-1,-10,-8],
-  [-1,-6,-5],
-  [0,-1,-1]]
+  cryptographic(
+    "MEET ME MONDAY",
+    [
+      [1, -2, 2],
+      [-1, 1, 3],
+      [1, -1, -4],
+    ],
+    [
+      [-1, -10, -8],
+      [-1, -6, -5],
+      [0, -1, -1],
+    ]
   )
-
 );
