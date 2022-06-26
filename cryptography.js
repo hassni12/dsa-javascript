@@ -39,7 +39,11 @@ function cryptographic(pattern, key, inverse_Of_Key) {
   console.log(decrypted, "decrypted");
   for (let i = 0; i < decrypted.length; i++) {
     for (let j = 0; j < inverse_Of_Key.length; j++) {
-      console.log(String.fromCharCode(decrypted[i][j]));
+      let result= String.fromCharCode(decrypted[i][j])
+      console.log(
+
+        
+       result.replace(/^\s+|\s+$/g, ''));
     }
   }
 }
