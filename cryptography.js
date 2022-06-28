@@ -1,4 +1,17 @@
-function cryptographic(pattern, key, inverse_Of_Key) {
+pattern = prompt("PLEASE ENTER TEXT THAT YOU WANT TO ENCRYPT");
+input = prompt("enter yes if you want to encrypt your sentence else press any key");
+if (input==="yes"||input==="YES") {
+  key = [
+    [1, -2, 2],
+    [-1, 1, 3],
+    [1, -1, -4],
+  ];
+  inverse_Of_Key = [
+    [-1, -10, -8],
+    [-1, -6, -5],
+    [0, -1, -1],
+  ];
+
   let arr = [];
   for (let i = 0; i < pattern.length; i++) {
     arr.push(pattern.charCodeAt(i));
@@ -39,26 +52,8 @@ function cryptographic(pattern, key, inverse_Of_Key) {
   console.log(decrypted, "decrypted");
   for (let i = 0; i < decrypted.length; i++) {
     for (let j = 0; j < inverse_Of_Key.length; j++) {
-      let result= String.fromCharCode(decrypted[i][j])
-      console.log(
-
-        
-       result.replace(/^\s+|\s+$/g, ''));
+      let result = String.fromCharCode(decrypted[i][j]);
+      console.log(result);
     }
   }
-}
-console.log(
-  cryptographic(
-    "MEET ME MONDAY",
-    [
-      [1, -2, 2],
-      [-1, 1, 3],
-      [1, -1, -4],
-    ],
-    [
-      [-1, -10, -8],
-      [-1, -6, -5],
-      [0, -1, -1],
-    ]
-  )
-);
+} 

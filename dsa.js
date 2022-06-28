@@ -1,3 +1,147 @@
+ //     function same(arr1,arr2){
+      //         if (arr1.length!==arr2.length){
+      //             return false
+      //         }
+      //         for (let i=0; i<arr1.length; i++){
+      //             let curentIndex=arr2.indexOf(arr1[i]**2)
+
+      //             if (curentIndex==-1){
+      //                 return false
+      //             }
+      //             arr2.splice(curentIndex,1)
+      //         }
+      //         return true
+
+      //     }
+      //   console.log(same([3,2,1],[9,4,1]))
+      // let arr1 ="hassnain"
+      // console.log(arr1.indexOf("n")
+
+      // console.log(result)
+      // "hassnain"
+      //       function count(str) {
+      // let result = {};
+      //         for (let i = 0; i < str.length; i++) {
+
+      //           if (result[str[i]] > 0) {
+      //             result[str[i]]++;
+      //           } else {
+      //             result[str[i]] = 1;
+
+      //           }
+
+      //         }
+      //         return result;
+      //       }
+      //       console.log(count("hhhjk"));
+      //   let count1 = {};
+      //   arr1 = "hassnain";
+      // function same(arr1, arr2) {
+      //     if (arr1.lenght!==arr2.lenght)
+      //     {
+      //         return new Error("arry are not equal in size")
+      //     }
+      //   let count1={};
+      //   let count2={};
+
+      //   for (let val of arr1) {
+      //     count1[val] = (count1[val] || 0) + 1;
+      //   }
+      //       console.log(count1);
+      //   for (let val of arr2) {
+      //     count1[val] = (count1[val] || 0) + 1;
+      //   }
+      //   for (let key in count1){
+      //       if (!(key**2 in count2) ){
+      //           return false
+      //       }
+
+      //   }
+      //   return true
+      //   // for ()
+      // }
+      // console.log(same([4,4,2],[16,16,4]))
+
+      // arr1="hassnain"
+      // let count2={name:"hassnain"}
+      //     for (let val in count2) {
+      //     //   count1[val] = (count1[val] || 0) + 1;
+      //     console.log(val)
+      // }
+
+    //   function reversmatch(str,str1){
+    //     if (str.length!==str1.length){
+    //       return false
+    //     }
+    //     let result="";
+    //   for (let i = str.length-1; i >=0;  i--) {
+    //     result+=str[i]
+      
+    //   }
+    //   if (result===str1){
+    //       return true
+    //     }else{
+    //       return false
+    //     }
+     
+    //       console.log(result)
+
+    // }
+    // console.log(anagram("hass","ssah"))
+// function(){
+
+// }
+// function anagram(str,str1){
+//   let result ={}
+//   for (let i=0; i<str.length; i++){
+// result[str[i]]?result[str[i]]++:result[str[i]]=1
+//   }
+//   for (let i=0; i<str1.length; i++){
+// if(!(result[str1[i]])){
+//   return false
+
+// }else{
+//   result[str1[i]]-=1
+// }
+  
+//   }
+// return true 
+// }
+// [-3,-2,-1,0,1,2,3]
+// function pointer(arr){
+//   for(let i=0; i<arr.length; i++){
+//     for(let j=i+1; j<arr.length; j++){
+      
+      
+//       if ((arr[i]+arr[j])===0){
+//         return [arr[i],arr[j]]
+//       }
+//     } 
+//   }
+// }
+
+
+// function countuniquevaluesinarry(arr){
+//   let i=0 
+//   for (let j=1; j<arr.length; j++){
+//     if (arr[i]!==arr[j]){
+//       i++
+//      console.log(arr[i]=arr[j]) // 2,3,4,5 
+//     }
+//   }
+//    return i+1
+// }
+// console.log(countuniquevaluesinarry([1,1,1,2,2,2,3,4,5])) 
+
+// arr=[1,1,2,3,4,4,5]
+// let result =""
+// for(let i=arr.length-1; i>=0;i-- ){
+// result+=arr[i]
+// // console.log(i)
+// }
+// console.log(result)
+
+
 //     function same(arr1,arr2){
 //         if (arr1.length!==arr2.length){
 //             return false
@@ -334,11 +478,6 @@
 
 //   // console.log(filledArray,"this");
 
-
-
-
-
-
 //   let array = [];
 //   for (let index = 0; index < arr.length; index++) {
 //     array.push();
@@ -380,8 +519,7 @@
 //       // console.log(i,"i",j,"j",z,"z")
 //       // m.push( A[z][j]*array[j][z])
 //       // console.log("break");
-//       // console.log(array[j][z], A[z][j]);  
-
+//       // console.log(array[j][z], A[z][j]);
 
 //     }
 //   }
@@ -429,11 +567,11 @@
 // console.log(selection([5, 3, 4, 1, 2]));
 
 // function insertion(array) {
-//   let arr=[] in linux 
+//   let arr=[] in linux
 //   for (let i =1; i < array.length; i++) {
 //     let currentval = i;
 //     for (let j =  i-1; j >=0; j--) {
-      
+
 //       if (array[j] > currentval) {
 //         console.log(i, 'i', j, 'j');
 //         array.splice(currentval)
@@ -453,6 +591,54 @@
 // console.log(insertion([5, 3, 4, 1, 2]));
 // console.log([1,2,3,4,5,6,7,8].splice(0,3));
 
+// function insert(array) {
+//   for (let i = 1; i < array.length; i++) {
+//     let currentVal = array[i];
+
+//     let j = i - 1;
+//     while (j >= 0 && array[j] > currentVal) {
+//       console.log(i, "i", j, "j");
+//       array[j + 1] = array[j];
+
+//       j--;
+//     }
+//     array[j+1]=currentVal
+
+//     console.log("break");
+//   }
+//   return array
+// }
+// console.log(insert([2, 1, 9, 76, 4]));
+
+// function mergeSort(firstArray, secondArray) {
+
+
+//   let result = [];
+//   let i = 0;
+//   let j = 0;
+//   while (i < firstArray.length && j < secondArray.length) {
+//     if (firstArray[i] < secondArray[j]) {
+//       result.push(firstArray[i]);
+//       i++;
+//     } else  {
+//       result.push(secondArray[j]);
+//       j++;
+
+
+//     }
+//   }
+//   while (i<firstArray.length ){
+//     result.push(firstArray[i]);
+//     i++
+//   }
+//   while (j<secondArray.length ){
+//     result.push(secondArray[j]);
+//     j++
+//   }
+// return result
+// //  console.log(result) 
+// }
+// console.log(mergeSort([1, 10, 50], [2, 14, 99, 100]));
 
 
 
@@ -460,25 +646,11 @@
 
 
 
-function insert(array){
- for (let i = 1; i < array.length; i++) {
-  let currentVal=array[i]
-
-  let j=i-1
-  while (j>=0){
-    console.log(i,"i",j,"j");
-    
-  j--
-  }
-  console.log("break");
-
-  
-  
- }
 
 
-}
-console.log(insert([1,2,9,76,0]))
+
+
+
 
 
 
