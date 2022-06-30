@@ -635,36 +635,82 @@
 // }
 // console.log(mergeSort([1, 10, 50], [2, 14, 99, 100]));
 
-function pivot(arr, start = 0, end = arr.length-1) {
-  let pivot = arr[start];
-  let swapIndex = start;
-  for (let i = start+1; i <=end; i++) {
-    if (pivot > arr[i]) {
-      swapIndex++;
-      temp = arr[i];
-      arr[i] = arr[swapIndex];
-      arr[swapIndex] = temp;
-    }
-  }
-  temp = arr[start];
-  arr[start] = arr[swapIndex];
-  arr[swapIndex] = temp;
+// function pivot(arr, start = 0, end = arr.length-1) {
+//   let pivot = arr[start];
+//   let swapIndex = start;
+//   for (let i = start+1; i <=end; i++) {
+//     if (pivot > arr[i]) {
+//       swapIndex++;
+//       temp = arr[i];
+//       arr[i] = arr[swapIndex];
+//       arr[swapIndex] = temp;
+//     }
+//   }
+//   temp = arr[start];
+//   arr[start] = arr[swapIndex];
+//   arr[swapIndex] = temp;
 
-  return swapIndex;
-}
-function quickSort(arr, left = 0, right = arr.lenght-1) {
+//   return swapIndex;
+// }
+// function quickSort(arr, left = 0, right = arr.length-1) {
  
-  if (left < right) {
+//   if (left < right) {
    
     
-    let pivotIndex = pivot(arr, left, right);
-     //left 
-    quickSort(arr, left, pivotIndex - 1);
-    //right
-    quickSort(arr, pivotIndex + 1, right);
-  }
-  return arr
-}
+//     let pivotIndex = pivot(arr, left, right);
+//      //left 
+//     quickSort(arr, left, pivotIndex - 1);
+//     //right
+//     quickSort(arr, pivotIndex + 1, right);
+//   }
+//   return arr
+// }
 
-console.log(quickSort([4, 8, 2, 1, 5, 6, 3]));
-// [3,2,1,4,5,7,6,8]
+// console.log(quickSort([4, 8, 2, 1, 5, 6, 3]));
+// // [3,2,1,4,5,7,6,8]
+//  12345 , 0
+
+// num="12345"
+// position=0
+// for(let i=num.length; i>=0;i--){
+//  console.log(num[i]) 
+
+
+// }
+
+
+
+
+
+
+function getDigit(num, i) {
+    return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10;
+  }
+//   console.log(getDigit(123432,0))
+//   console.log(Math.log10(12345));
+  
+  function digitCount(num) {
+    if (num === 0) return 1;
+    return Math.floor(Math.log10(Math.abs(num))) + 1;
+  }
+  
+  function mostDigits(nums) {
+    let maxDigits = 0;
+    for (let i = 0; i < nums.length; i++) {
+      maxDigits = Math.max(maxDigits, digitCount(nums[i]));
+    }
+    return maxDigits;
+  }
+  function redixSort(nums){
+    let maxDigitCount=mostDigits(nums)
+    for(let k=0; k<maxDigitCount.length; k++){
+        
+
+
+    }
+    console.log(maxDigitCount);
+
+
+  }
+
+  console.log(redixSort([23,345,5467,12,2345,9852]));
