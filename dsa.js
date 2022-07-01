@@ -653,12 +653,11 @@
 //   return swapIndex;
 // }
 // function quickSort(arr, left = 0, right = arr.length-1) {
- 
+
 //   if (left < right) {
-   
-    
+
 //     let pivotIndex = pivot(arr, left, right);
-//      //left 
+//      //left
 //     quickSort(arr, left, pivotIndex - 1);
 //     //right
 //     quickSort(arr, pivotIndex + 1, right);
@@ -673,44 +672,76 @@
 // num="12345"
 // position=0
 // for(let i=num.length; i>=0;i--){
-//  console.log(num[i]) 
-
+//  console.log(num[i])
 
 // }
 
+// function getDigit(num, i) {
+//     return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10;
+//   }
+// //   console.log(getDigit(123432,0))
+// //   console.log(Math.log10(12345));
 
+//   function digitCount(num) {
+//     if (num === 0) return 1;
+//     return Math.floor(Math.log10(Math.abs(num))) + 1;
+//   }
 
+//   function mostDigits(nums) {
+//     let maxDigits = 0;
+//     for (let i = 0; i < nums.length; i++) {
+//       maxDigits = Math.max(maxDigits, digitCount(nums[i]));
+//     }
+//     return maxDigits;
+//   }
+//   function redixSort(nums){
+//     let maxDigitCount=mostDigits(nums)
+//     for(let k=0; k<maxDigitCount; k++){
+//         let arrayBukets=[[],[],[],[],[],[],[],[],[],[]]
+//         // let arrayBukets=Array.from({lenght:10},()=>[])
 
+//         for (let i=0;i<nums.length;i++){
 
+//         arrayBukets[getDigit(nums[i],k)].push(nums[i])
 
-function getDigit(num, i) {
-    return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10;
+//         }
+//      console.log(arrayBukets)
+// nums=[].concat(...arrayBukets)
+// console.log(nums)
+
+//     }
+
+//   }
+
+//   console.log(redixSort([23,345,5467,12,2345,9852]));
+
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
   }
-//   console.log(getDigit(123432,0))
-//   console.log(Math.log10(12345));
-  
-  function digitCount(num) {
-    if (num === 0) return 1;
-    return Math.floor(Math.log10(Math.abs(num))) + 1;
+}
+class SinglyLinkedList {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
   }
-  
-  function mostDigits(nums) {
-    let maxDigits = 0;
-    for (let i = 0; i < nums.length; i++) {
-      maxDigits = Math.max(maxDigits, digitCount(nums[i]));
+  push(val) {
+    let newNode = new Node(val);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+    } else {
+      this.tail.next = newNode;
+      this.tail = newNode;
     }
-    return maxDigits;
+    this.length++;
+    return this;
   }
-  function redixSort(nums){
-    let maxDigitCount=mostDigits(nums)
-    for(let k=0; k<maxDigitCount.length; k++){
-        
-
-
-    }
-    console.log(maxDigitCount);
-
-
-  }
-
-  console.log(redixSort([23,345,5467,12,2345,9852]));
+}
+let list = new SinglyLinkedList();
+console.log(list.push("hi"));
+console.log(list.push("hello"));
+// console.log(list.push("hassnain"));
+// console.log(list.push("qureshi"));
