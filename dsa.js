@@ -831,11 +831,41 @@ class SinglyLinkedList {
   unshift(val){
     let newHead=new Node(val);
     if (!this.head){
-      
+      this.head=newHead;
+      this.tail=this.head;
+    }else{
+         newHead.next=this.head;
+    this.head=newHead
     }
-    this.head=newHead;
+ 
     this.lenght++
-    return newHead
+    return this
+  }
+  get(index){
+    if(index<0||index>this.lenght) return null;
+    let counter=0;
+    let current=this.head;
+    while(counter!==index){
+      current=current.next;
+      counter++
+    }
+    return current;
+    
+  }
+  set(index,value){
+    let getValue=this.get(index);
+    if (getValue){
+      getValue.val=value
+      return true 
+    }else{
+      return false
+    }
+  }
+  insert(index,value){
+    if (index<0||index>this.lenght) return false
+    let newNode=new Node(value)
+    if ()
+
   }
 }
 
@@ -844,4 +874,7 @@ console.log(li.insert("new"));
 console.log(li.insert("new2"));
 console.log(li.insert("new3"));
 // console.log(li.pop());
-console.log(li.unshift("new4"));
+// console.log(li.unshift("new4"));
+// console.log(li.shift("new5"));
+// console.log(li.get(2));
+// console.log(li.set(1,"hassnain"));
