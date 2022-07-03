@@ -749,33 +749,99 @@
 //       current = current.next;
 //     }
 
-//     this.tail = newTail;
-//     this.tail.next = null;
-//     this.length--;
-//     if (this.length===0){
-//       this.head = null;
-//       this.tail=null
-//     } 
-//     return current;
+//     // this.tail = newTail;
+//     // this.tail.next = null;
+//     // this.length--;
+//     // if (this.length===0){
+//     //   this.head = null;
+//     //   this.tail=null
+//     // }
+//     // return current;
 
-//     // console.log(newTail.val)
-//     // console.log(current.val)
+//     console.log(newTail.val,"tail")
+//     console.log(current.val)
 //   }
 // }
 // let list = new SinglyLinkedList();
 // console.log(list.push("hassnain"));
 // console.log(list.push("hi"));
 // console.log(list.push("hello"));
-// // console.log(list.pop(),"this")
+// console.log(list.pop(),"this")
 
-// // console.log(list.push("qureshi"));
+// console.log(list.push("qureshi"));
 
-
-
-class Node{
-  constructor(val,next=null){
-    this.val=val;
-    this.next=next;
-
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
   }
 }
+
+class SinglyLinkedList {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.lenght = 0;
+  }
+  // method
+  insert(val) {
+    let nextNode = new Node(val);
+    if (!this.head) {
+      this.head = nextNode;
+      this.tail = this.head;
+    } else {
+      this.tail.next = nextNode;
+      this.tail = nextNode;
+    }
+    this.lenght++;
+    return this;
+  }
+  pop() {
+    if (!this.head) return undefined;
+    let current = this.head;
+    let newTail = current;
+    while (current.next) {
+      newTail = current;
+      current = current.next;
+    }
+    this.tail = newTail;
+    this.tail.next = null;
+    this.lenght--;
+    if (this.lenght === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+
+    return current;
+  }
+  shift(){
+    // console.log(this.head.next)
+    if (!this.head)return undefined;
+    let current=this.head;
+    this.head=current.next;
+    this.lenght--
+    if (this.lenght===0){
+      this.tail=null
+
+    }
+    return current
+
+  
+  }
+  unshift(val){
+    let newHead=new Node(val);
+    if (!this.head){
+      
+    }
+    this.head=newHead;
+    this.lenght++
+    return newHead
+  }
+}
+
+let li = new SinglyLinkedList();
+console.log(li.insert("new"));
+console.log(li.insert("new2"));
+console.log(li.insert("new3"));
+// console.log(li.pop());
+console.log(li.unshift("new4"));
