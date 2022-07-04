@@ -814,67 +814,102 @@ class SinglyLinkedList {
 
     return current;
   }
-  shift(){
+  shift() {
     // console.log(this.head.next)
-    if (!this.head)return undefined;
-    let current=this.head;
-    this.head=current.next;
-    this.lenght--
-    if (this.lenght===0){
-      this.tail=null
-
-    }
-    return current
-
-  
-  }
-  unshift(val){
-    let newHead=new Node(val);
-    if (!this.head){
-      this.head=newHead;
-      this.tail=this.head;
-    }else{
-         newHead.next=this.head;
-    this.head=newHead
-    }
- 
-    this.lenght++
-    return this
-  }
-  get(index){
-    if(index<0||index>this.lenght) return null;
-    let counter=0;
-    let current=this.head;
-    while(counter!==index){
-      current=current.next;
-      counter++
+    if (!this.head) return undefined;
+    let current = this.head;
+    this.head = current.next;
+    this.lenght--;
+    if (this.lenght === 0) {
+      this.tail = null;
     }
     return current;
-    
   }
-  set(index,value){
-    let getValue=this.get(index);
-    if (getValue){
-      getValue.val=value
-      return true 
-    }else{
-      return false
+  unshift(val) {
+    let newHead = new Node(val);
+    if (!this.head) {
+      this.head = newHead;
+      this.tail = this.head;
+    } else {
+      newHead.next = this.head;
+      this.head = newHead;
+    }
+
+    this.lenght++;
+    return this;
+  }
+  get(index) {
+    if (index < 0 || index > this.lenght) return null;
+    let counter = 0;
+    let current = this.head;
+    while (counter !== index) {
+      current = current.next;
+      counter++;
+    }
+    return current;
+  }
+  set(index, value) {
+    let getValue = this.get(index);
+    if (getValue) {
+      getValue.val = value;
+      return true;
+    } else {
+      return false;
     }
   }
-  insert(index,value){
-    if (index<0||index>this.lenght) return false
-    let newNode=new Node(value)
-    if ()
+  updateBetweenIndex(index, value) {
+    if (index < 0 || index > this.lenght) return false;
+    let newNode = new Node(value);
+    let getValByIndex = this.get(index - 1);
 
+    if (index === 0) {
+      this.unshift(value);
+    } else if (index === this.lenght) {
+      this.insert(value);
+    } else {
+      let temp = getValByIndex.next;
+      getValByIndex.next = newNode;
+      newNode.next = temp;
+    }
+    this.lenght++;
+    return getValByIndex;
   }
+  removeByIndex(index) {
+    if (index < 0 || index > this.lenght) return false;
+    let getValByIndex = this.get(index - 1);
+
+    if (index === 0) {
+      this.shift();
+      return true
+    } 
+    if (index === this.lenght-1) {
+      this.pop();
+      return true
+    
+    } 
+      let temp = getValByIndex.next.next;
+      // console.log(temp)
+      getValByIndex.next = temp;
+      this.lenght--;
+      return true;
+    
+      
+    }
+    reverse(){
+      
+    }
 }
 
 let li = new SinglyLinkedList();
 console.log(li.insert("new"));
 console.log(li.insert("new2"));
 console.log(li.insert("new3"));
+console.log(li.insert("imran"));
+// console.log(li.removeByIndex(2));
+
 // console.log(li.pop());
 // console.log(li.unshift("new4"));
-// console.log(li.shift("new5"));
+// console.log(li.shift());
 // console.log(li.get(2));
 // console.log(li.set(1,"hassnain"));
+// console.log(li.updateBetweenIndex(2, "ali"));
