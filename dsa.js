@@ -896,7 +896,21 @@ class SinglyLinkedList {
       
     }
     reverse(){
+      let node=this.head;
+      // this.head=this.tail;
+      // this.tail=node;
+      let prev=null;
+      while (node!==null){
+        let temp=node.next;
+        node.next=prev;
+        prev=node
+        node=temp
+      }
+      return prev
+    
       
+      
+
     }
 }
 
@@ -905,7 +919,7 @@ console.log(li.insert("new"));
 console.log(li.insert("new2"));
 console.log(li.insert("new3"));
 console.log(li.insert("imran"));
-// console.log(li.removeByIndex(2));
+console.log(li.reverse());
 
 // console.log(li.pop());
 // console.log(li.unshift("new4"));
