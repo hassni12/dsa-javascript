@@ -804,10 +804,13 @@ class SinglyLinkedList {
       newTail = current;
       current = current.next;
     }
+    console.log(current)
+    console.log(newTail,"t")
+
     this.tail = newTail;
     this.tail.next = null;
     this.lenght--;
-    if (this.lenght === 0) {
+    if (this.lenght === 1) {
       this.head = null;
       this.tail = null;
     }
@@ -880,50 +883,63 @@ class SinglyLinkedList {
 
     if (index === 0) {
       this.shift();
-      return true
-    } 
-    if (index === this.lenght-1) {
-      this.pop();
-      return true
-    
-    } 
-      let temp = getValByIndex.next.next;
-      // console.log(temp)
-      getValByIndex.next = temp;
-      this.lenght--;
       return true;
-    
-      
     }
-    reverse(){
-      let node=this.head;
-      // this.head=this.tail;
-      // this.tail=node;
-      let prev=null;
-      while (node!==null){
-        let temp=node.next;
-        node.next=prev;
-        prev=node
-        node=temp
-      }
-      return prev
-    
-      
-      
-
+    if (index === this.lenght - 1) {
+      this.pop();
+      return true;
     }
+    let temp = getValByIndex.next.next;
+    // console.log(temp)
+    getValByIndex.next = temp;
+    this.lenght--;
+    return true;
+  }
+  reverse() {
+    let node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+    let prev = null;
+    while (node !== null) {
+      let temp = node.next;
+      node.next = prev;
+      prev = node;
+      node = temp;
+    }
+    return prev;
+  }
 }
 
 let li = new SinglyLinkedList();
 console.log(li.insert("new"));
 console.log(li.insert("new2"));
 console.log(li.insert("new3"));
-console.log(li.insert("imran"));
-console.log(li.reverse());
+// console.log(li.insert("imran"));
+// console.log(li.reverse());
 
-// console.log(li.pop());
+console.log(li.pop());
 // console.log(li.unshift("new4"));
 // console.log(li.shift());
 // console.log(li.get(2));
 // console.log(li.set(1,"hassnain"));
 // console.log(li.updateBetweenIndex(2, "ali"));
+
+
+// class Node{
+//   constructor(val){
+//   this.val=val;
+//   this.next=null;
+//   this.prev=null;
+//   }
+// }
+// class DoublyLinkedList{
+//   constructor(){
+//     this.head=null;
+//     this.tail=null;
+//     this.length=0;
+//   }
+
+
+// }
+// let li= new DoublyLinkedList()
+// console.log(l)
