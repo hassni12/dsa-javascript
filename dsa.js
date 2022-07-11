@@ -770,176 +770,220 @@
 
 // console.log(list.push("qureshi"));
 
+// class Node {
+//   constructor(val) {
+//     this.val = val;
+//     this.next = null;
+//   }
+// }
+
+// class SinglyLinkedList {
+//   constructor() {
+//     this.head = null;
+//     this.tail = null;
+//     this.lenght = 0;
+//   }
+//   // method
+//   insert(val) {
+//     let nextNode = new Node(val);
+//     if (!this.head) {
+//       this.head = nextNode;
+//       this.tail = this.head;
+//     } else {
+//       this.tail.next = nextNode;
+//       this.tail = nextNode;
+//     }
+//     this.lenght++;
+//     return this;
+//   }
+//   pop() {
+//     if (!this.head) return undefined;
+//     let current = this.head;
+//     let newTail = current;
+//     while (current.next) {
+//       newTail = current;
+//       current = current.next;
+//     }
+//     console.log(current)
+//     console.log(newTail,"t")
+
+//     this.tail = newTail;
+//     this.tail.next = null;
+//     this.lenght--;
+//     if (this.lenght === 1) {
+//       this.head = null;
+//       this.tail = null;
+//     }
+
+//     return current;
+//   }
+//   shift() {
+//     // console.log(this.head.next)
+//     if (!this.head) return undefined;
+//     let current = this.head;
+//     this.head = current.next;
+//     this.lenght--;
+//     if (this.lenght === 0) {
+//       this.tail = null;
+//     }
+//     return current;
+//   }
+//   unshift(val) {
+//     let newHead = new Node(val);
+//     if (!this.head) {
+//       this.head = newHead;
+//       this.tail = this.head;
+//     } else {
+//       newHead.next = this.head;
+//       this.head = newHead;
+//     }
+
+//     this.lenght++;
+//     return this;
+//   }
+//   get(index) {
+//     if (index < 0 || index > this.lenght) return null;
+//     let counter = 0;
+//     let current = this.head;
+//     while (counter !== index) {
+//       current = current.next;
+//       counter++;
+//     }
+//     return current;
+//   }
+//   set(index, value) {
+//     let getValue = this.get(index);
+//     if (getValue) {
+//       getValue.val = value;
+//       return true;
+//     } else {
+//       return false;
+//     }
+//   }
+//   updateBetweenIndex(index, value) {
+//     if (index < 0 || index > this.lenght) return false;
+//     let newNode = new Node(value);
+//     let getValByIndex = this.get(index - 1);
+
+//     if (index === 0) {
+//       this.unshift(value);
+//     } else if (index === this.lenght) {
+//       this.insert(value);
+//     } else {
+//       let temp = getValByIndex.next;
+//       getValByIndex.next = newNode;
+//       newNode.next = temp;
+//     }
+//     this.lenght++;
+//     return getValByIndex;
+//   }
+//   removeByIndex(index) {
+//     if (index < 0 || index > this.lenght) return false;
+//     let getValByIndex = this.get(index - 1);
+
+//     if (index === 0) {
+//       this.shift();
+//       return true;
+//     }
+//     if (index === this.lenght - 1) {
+//       this.pop();
+//       return true;
+//     }
+//     let temp = getValByIndex.next.next;
+//     // console.log(temp)
+//     getValByIndex.next = temp;
+//     this.lenght--;
+//     return true;
+//   }
+//   reverse() {
+//     let node = this.head;
+//     this.head = this.tail;
+//     this.tail = node;
+//     let prev = null;
+//     while (node !== null) {
+//       let temp = node.next;
+//       node.next = prev;
+//       prev = node;
+//       node = temp;
+//     }
+//     return prev;
+//   }
+// }
+
+// let li = new SinglyLinkedList();
+// console.log(li.insert("new"));
+// console.log(li.insert("new2"));
+// console.log(li.insert("new3"));
+// // console.log(li.insert("imran"));
+// // console.log(li.reverse());
+
+// console.log(li.pop());
+// // console.log(li.unshift("new4"));
+// // console.log(li.shift());
+// // console.log(li.get(2));
+// // console.log(li.set(1,"hassnain"));
+// // console.log(li.updateBetweenIndex(2, "ali"));
+
 class Node {
   constructor(val) {
     this.val = val;
     this.next = null;
+    this.prev = null;
   }
 }
-
-class SinglyLinkedList {
+class DoublyLinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
-    this.lenght = 0;
+    this.length = 0;
   }
-  // method
-  insert(val) {
-    let nextNode = new Node(val);
+  push(val) {
+    let newNode = new Node(val);
     if (!this.head) {
-      this.head = nextNode;
+      this.head = newNode;
       this.tail = this.head;
     } else {
-      this.tail.next = nextNode;
-      this.tail = nextNode;
+      this.tail.next = newNode;
+      newNode.prev = newNode;
+      this.tail = newNode;
     }
-    this.lenght++;
+    this.length++;
     return this;
   }
-  pop() {
-    if (!this.head) return undefined;
-    let current = this.head;
-    let newTail = current;
-    while (current.next) {
-      newTail = current;
-      current = current.next;
-    }
-    console.log(current)
-    console.log(newTail,"t")
-
-    this.tail = newTail;
-    this.tail.next = null;
-    this.lenght--;
-    if (this.lenght === 1) {
-      this.head = null;
-      this.tail = null;
-    }
-
-    return current;
-  }
-  shift() {
-    // console.log(this.head.next)
-    if (!this.head) return undefined;
-    let current = this.head;
-    this.head = current.next;
-    this.lenght--;
-    if (this.lenght === 0) {
-      this.tail = null;
-    }
-    return current;
-  }
-  unshift(val) {
-    let newHead = new Node(val);
-    if (!this.head) {
-      this.head = newHead;
-      this.tail = this.head;
-    } else {
-      newHead.next = this.head;
-      this.head = newHead;
-    }
-
-    this.lenght++;
-    return this;
-  }
+  // remove() {}
   get(index) {
-    if (index < 0 || index > this.lenght) return null;
-    let counter = 0;
-    let current = this.head;
-    while (counter !== index) {
-      current = current.next;
-      counter++;
+    if (index < 0 || index >= this.length) return undefined;
+    if (index <= Math.floor(this.length / 2)) {
+      let counter=0
+      let current=this.head
+      while(counter!==index){
+        current=current.next
+        counter++
+      }
+      return current
+    }else {
+      let counter =this.length-1
+      let current=this.tail
+      while(counter!==index){
+        current=current.prev
+        current--
+      }
+      return current 
     }
-    return current;
   }
-  set(index, value) {
-    let getValue = this.get(index);
-    if (getValue) {
-      getValue.val = value;
-      return true;
-    } else {
-      return false;
-    }
-  }
-  updateBetweenIndex(index, value) {
-    if (index < 0 || index > this.lenght) return false;
-    let newNode = new Node(value);
-    let getValByIndex = this.get(index - 1);
+set(value,index){
+  if (index < 0 || index >= this.length) return undefined;
+  let prev =this.get(value);
+  
 
-    if (index === 0) {
-      this.unshift(value);
-    } else if (index === this.lenght) {
-      this.insert(value);
-    } else {
-      let temp = getValByIndex.next;
-      getValByIndex.next = newNode;
-      newNode.next = temp;
-    }
-    this.lenght++;
-    return getValByIndex;
-  }
-  removeByIndex(index) {
-    if (index < 0 || index > this.lenght) return false;
-    let getValByIndex = this.get(index - 1);
 
-    if (index === 0) {
-      this.shift();
-      return true;
-    }
-    if (index === this.lenght - 1) {
-      this.pop();
-      return true;
-    }
-    let temp = getValByIndex.next.next;
-    // console.log(temp)
-    getValByIndex.next = temp;
-    this.lenght--;
-    return true;
-  }
-  reverse() {
-    let node = this.head;
-    this.head = this.tail;
-    this.tail = node;
-    let prev = null;
-    while (node !== null) {
-      let temp = node.next;
-      node.next = prev;
-      prev = node;
-      node = temp;
-    }
-    return prev;
-  }
 }
 
-let li = new SinglyLinkedList();
-console.log(li.insert("new"));
-console.log(li.insert("new2"));
-console.log(li.insert("new3"));
-// console.log(li.insert("imran"));
-// console.log(li.reverse());
-
-console.log(li.pop());
-// console.log(li.unshift("new4"));
-// console.log(li.shift());
-// console.log(li.get(2));
-// console.log(li.set(1,"hassnain"));
-// console.log(li.updateBetweenIndex(2, "ali"));
-
-
-// class Node{
-//   constructor(val){
-//   this.val=val;
-//   this.next=null;
-//   this.prev=null;
-//   }
-// }
-// class DoublyLinkedList{
-//   constructor(){
-//     this.head=null;
-//     this.tail=null;
-//     this.length=0;
-//   }
-
-
-// }
-// let li= new DoublyLinkedList()
-// console.log(l)
+}
+let li = new DoublyLinkedList();
+console.log(li.push(1));
+console.log(li.push(4));
+console.log(li.push(6));
+console.log(li.get(1));
+// console.log(li.push("hassnian"))
+// console.log((8/3))
