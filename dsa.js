@@ -924,66 +924,114 @@
 // // console.log(li.set(1,"hassnain"));
 // // console.log(li.updateBetweenIndex(2, "ali"));
 
-class Node {
-  constructor(val) {
-    this.val = val;
-    this.next = null;
-    this.prev = null;
-  }
-}
-class DoublyLinkedList {
-  constructor() {
-    this.head = null;
-    this.tail = null;
-    this.length = 0;
-  }
-  push(val) {
-    let newNode = new Node(val);
-    if (!this.head) {
-      this.head = newNode;
-      this.tail = this.head;
-    } else {
-      this.tail.next = newNode;
-      newNode.prev = newNode;
-      this.tail = newNode;
-    }
-    this.length++;
-    return this;
-  }
-  // remove() {}
-  get(index) {
-    if (index < 0 || index >= this.length) return undefined;
-    if (index <= Math.floor(this.length / 2)) {
-      let counter=0
-      let current=this.head
-      while(counter!==index){
-        current=current.next
-        counter++
-      }
-      return current
-    }else {
-      let counter =this.length-1
-      let current=this.tail
-      while(counter!==index){
-        current=current.prev
-        current--
-      }
-      return current 
-    }
-  }
-set(value,index){
-  if (index < 0 || index >= this.length) return undefined;
-  let prev =this.get(value);
+// class Node {
+//   constructor(val) {
+//     this.val = val;
+//     this.next = null;
+//     this.prev = null;
+//   }
+// }
+// class DoublyLinkedList {
+//   constructor() {
+//     this.head = null;
+//     this.tail = null;
+//     this.length = 0;
+//   }
+//   push(val) {
+//     let newNode = new Node(val);
+//     if (!this.head) {
+//       this.head = newNode;
+//       this.tail = this.head;
+//     } else {
+//       this.tail.next = newNode;
+//       newNode.prev = newNode;
+//       this.tail = newNode;
+//     }
+//     this.length++;
+//     return this;
+//   }
+//   // remove() {}
+//   get(index) {
+//     if (index < 0 || index >= this.length) return undefined;
+//     if (index <= Math.floor(this.length / 2)) {
+//       let counter=0
+//       let current=this.head
+//       while(counter!==index){
+//         current=current.next
+//         counter++
+//       }
+//       return current
+//     }else {
+//       let counter =this.length-1
+//       let current=this.tail
+//       while(counter!==index){
+//         current=current.prev
+//         current--
+//       }
+//       return current 
+//     }
+//   }
+// set(value,index){
+//   if (index < 0 || index >= this.length) return undefined;
+//   let prev =this.get(value);
+
   
 
 
-}
+// }
+// remove(index){
+//   let removedVal=this.get(index)
 
+// console.log(removedVal,"remove");
+// }
+
+// }
+// let li = new DoublyLinkedList();
+// console.log(li.push(1));
+// console.log(li.push(4));
+// console.log(li.push(6));console.log(li.push(7));
+
+// console.log(li.remove(2))
+// // console.log(li.get(1));
+// // console.log(li.push("hassnian"))
+// // console.log((8/3))
+
+class Node{
+  constructor(val){
+    this.val=val;
+    this.next=null;
+  }
 }
-let li = new DoublyLinkedList();
-console.log(li.push(1));
-console.log(li.push(4));
-console.log(li.push(6));
-console.log(li.get(1));
-// console.log(li.push("hassnian"))
-// console.log((8/3))
+class Queue{
+  constructor(){
+    this.first=null;
+    this.last=null;
+    this.size=0
+  }
+  enqueue(val){
+    let newNode = new Node(val);
+    if (!this.first){
+      this.first=newNode;
+      this.last=newNode
+
+    }else{
+      this.last.next=newNode;
+      this.last=newNode
+    }
+    this.size++
+    return this 
+  }
+  dequeue(){
+    if (!this.head)return undefined;
+let val =this.first
+     if (this.head===this.last) return this.last=null;
+     this.first =this.first.next 
+     this.size--
+     return val.val
+
+  }
+}
+let li =new Queue()
+console.log(li.enqueue(1)) 
+console.log(li.enqueue(2)) 
+console.log(li.dequeue());
