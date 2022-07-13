@@ -968,15 +968,12 @@
 //         current=current.prev
 //         current--
 //       }
-//       return current 
+//       return current
 //     }
 //   }
 // set(value,index){
 //   if (index < 0 || index >= this.length) return undefined;
 //   let prev =this.get(value);
-
-  
-
 
 // }
 // remove(index){
@@ -996,42 +993,143 @@
 // // console.log(li.push("hassnian"))
 // // console.log((8/3))
 
-class Node{
-  constructor(val){
-    this.val=val;
-    this.next=null;
+// class Node{
+//   constructor(val){
+//     this.val=val;
+//     this.next=null;
+//   }
+// }
+// class Queue{
+//   constructor(){
+//     this.first=null;
+//     this.last=null;
+//     this.size=0
+//   }
+//   enqueue(val){
+//     let newNode = new Node(val);
+//     if (!this.first){
+//       this.first=newNode;
+//       this.last=newNode
+
+//     }else{
+//       this.last.next=newNode;
+//       this.last=newNode
+
+//     }
+//     this.size++
+//     return this
+//   }
+//   dequeue(){
+//     if (!this.head)return undefined;
+// let val =this.first
+//      if (this.head===this.last) return this.last=null;
+//      this.first =this.first.next
+//      this.size--
+//      return val.val
+
+//   }
+// }
+// let li =new Queue()
+// console.log(li.enqueue(1))
+// console.log(li.enqueue(2))
+// console.log(li.dequeue());
+
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.right = null;
+    this.left = null;
   }
 }
-class Queue{
-  constructor(){
-    this.first=null;
-    this.last=null;
-    this.size=0
+class BST {
+  constructor() {
+    this.root = null;
   }
-  enqueue(val){
+  insert(val) {
     let newNode = new Node(val);
-    if (!this.first){
-      this.first=newNode;
-      this.last=newNode
-
-    }else{
-      this.last.next=newNode;
-      this.last=newNode
+    if (!this.root) {
+      this.root = newNode;
+      return this;
     }
-    this.size++
-    return this 
+    let current = this.root;
+    while (true) {
+      if (val < current.val) {
+        if (current.left === null) {
+          current.left = newNode;
+          return this;
+        }
+        current = current.left;
+      } else {
+        if (current.right === null) {
+          current.right = newNode;
+          return this;
+        }
+        current = current.right;
+      }
+    }
   }
-  dequeue(){
-    if (!this.head)return undefined;
-let val =this.first
-     if (this.head===this.last) return this.last=null;
-     this.first =this.first.next 
-     this.size--
-     return val.val
+  find(val) {
+    if (this.root === null) return false;
+    let current = this.root;
 
+    while (current) {
+      if (val < current.val) {
+        current = current.left;
+      } else if (val > current.val) {
+        current = current.right;
+      } else {
+        return true;
+      }
+    }
+    return false;
+  }
+  BFS() {
+    let node = this.root;
+    // console.log(node, "t");
+    let data = [];
+    let queue = [];
+    // console.log(queue,"que")
+    queue.push(node);
+    while (queue.length) {
+      node = queue.shift();
+      data.push(node);
+      
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
+    }
+    return data;
+  }
+  preOrder() {
+    let current  = this.root;
+    // console.log(node, "t");
+    let data = [];
+    let queue = [];
+    // console.log(queue,"que")
+    queue.push(node);
+    while (queue.length) {
+      node = queue.shift();
+      data.push(node);
+      
+      if (node.left) queue.push(node.left);
+
+      if (node.right) queue.push(node.right);
+    }
+    return data;
   }
 }
-let li =new Queue()
-console.log(li.enqueue(1)) 
-console.log(li.enqueue(2)) 
-console.log(li.dequeue());
+//           15
+//       14      17
+//            16    20
+let li = new BST();
+console.log(li.insert(10));
+console.log(li.insert(6));
+console.log(li.insert(15));
+console.log(li.insert(3));
+console.log(li.insert(8));
+console.log(li.insert(20));
+console.log(li.BFS());
+console.log(li.preOrder());
+// console.log(li.find())
+
+// d=[2,4,6,7,8,77]
+// console.log(d.shift());
