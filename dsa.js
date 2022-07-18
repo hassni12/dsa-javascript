@@ -1163,31 +1163,38 @@ class maxBinaryTree {
     return this.val;
   }
   bubbleUp() {
-    let idx = this.val.length - 1
+    let idx = this.val.length - 1;
     let element = this.val[idx];
-    while (true) {
+    while (idx>0) {
       let parentidx = Math.floor((idx - 1) / 2);
 
       let parent = this.val[parentidx];
 
       if (element <= parent) break;
-      if (element > parent){
-          this.val[idx] = parent;
+
+      this.val[idx] = parent;
       this.val[parentidx] = element;
-   
-
-
-      }
-
-       idx = parentidx;
+      idx = parentidx;
     }
   }
+//   extractMax(){
+//     const max=this.val[0]
+//     const end=this.val.pop()
+//     this.val[0]=end
+//     return this.val   
+
+//   }
 }
 let li = new maxBinaryTree();
 console.log(li.insert(41));
+
+
+
 console.log(li.insert(39));
 console.log(li.insert(33));
 console.log(li.insert(18));
 console.log(li.insert(27));
 console.log(li.insert(12));
 console.log(li.insert(55));
+// console.log(li.extractMax());
+
