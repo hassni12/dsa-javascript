@@ -1152,49 +1152,177 @@
 // d=[2,4,6,7,8,77]
 // console.log(d.shift());
 
-class maxBinaryTree {
-  constructor() {
-    this.val = [];
-  }
-
-  insert(element) {
-    this.val.push(element);
-    this.bubbleUp();
-    return this.val;
-  }
-  bubbleUp() {
-    let idx = this.val.length - 1;
-    let element = this.val[idx];
-    while (idx>0) {
-      let parentidx = Math.floor((idx - 1) / 2);
-
-      let parent = this.val[parentidx];
-
-      if (element <= parent) break;
-
-      this.val[idx] = parent;
-      this.val[parentidx] = element;
-      idx = parentidx;
-    }
-  }
-//   extractMax(){
-//     const max=this.val[0]
-//     const end=this.val.pop()
-//     this.val[0]=end
-//     return this.val   
-
+// class maxBinaryTree {
+//   constructor() {
+//     this.val = [];
 //   }
+
+//   insert(element) {
+//     this.val.push(element);
+//     this.bubbleUp();
+//     return this.val;
+//   }
+//   bubbleUp() {
+//     let idx = this.val.length - 1;
+//     let element = this.val[idx];
+//     while (idx>0) {
+//       let parentidx = Math.floor((idx - 1) / 2);
+
+//       let parent = this.val[parentidx];
+
+//       if (element <= parent) break;
+
+//       this.val[idx] = parent;
+//       this.val[parentidx] = element;
+//       idx = parentidx;
+//     }
+//   }
+// //   extractMax(){
+// //     const max=this.val[0]
+// //     const end=this.val.pop()
+// //     this.val[0]=end
+// //     return this.val
+
+// //   }
+// }
+// let li = new maxBinaryTree();
+// console.log(li.insert(41));
+
+// console.log(li.insert(39));
+// console.log(li.insert(33));
+// console.log(li.insert(18));
+// console.log(li.insert(27));
+// console.log(li.insert(12));
+// console.log(li.insert(55));
+// // console.log(li.extractMax());
+
+// class HashTable {
+//   constructor(size = 53) {
+//     this.keyMap = new Array(size);
+//   }
+
+//   _hash(key) {
+//     let total = 0;
+//     let WEIRD_PRIME = 31;
+//     for (let i = 0; i < Math.min(key.length, 100); i++) {
+//       let char = key[i];
+//       let value = char.charCodeAt(0) - 96;
+//       total = (total * WEIRD_PRIME + value) % this.keyMap.length;
+//     }
+//     return total;
+//   }
+//   set(key, value) {
+//     let index = this._hash(key);
+//     if (!this.keyMap[index]) {
+//       this.keyMap[index] = [];
+//     }
+//     this.keyMap[index].push([key, value]);
+//     return this.keyMap;
+//   }
+//   get(key) {
+//     let index = this._hash(key);
+//     if (this.keyMap[index]) {
+//       for (let i = 0; i < this.keyMap[index].length; i++) {
+//         if (this.keyMap[index][i][0] === key) {
+//           return this.keyMap[index][i][1];
+//         }
+//       }
+//     }
+//     return undefined;
+//   }
+//   values() {
+//     let arr = [];
+//     for (let i = 0; i < this.keyMap.length; i++) {
+//       if (this.keyMap[i]) {
+//         // console.log(i)
+//         for (let j = 0; j < this.keyMap[i].length; j++) {
+//           // console.log(this.keyMap[i].length)
+//           arr.push(this.keyMap[i][j][1]);
+//           // console.log(j,"j",i,"i");
+//         }
+//       }
+//     }
+//     return arr;
+//   }
+//   keys() {
+//     let arr = [];
+//     for (let i = 0; i < this.keyMap.length; i++) {
+//       if (this.keyMap[i]) {
+//         // console.log(i)
+//         for (let j = 0; j < this.keyMap[i].length; j++) {
+//           // console.log(this.keyMap[i].length)
+//           arr.push(this.keyMap[i][j][0]);
+//           // console.log(j,"j",i,"i");
+//         }
+//       }
+//     }
+//     return arr;
+// }
+// }
+// let ht = new HashTable(17);
+// console.log(ht.set("maroon", "#800000"));
+// console.log(ht.set("yellow", "#FFFF00"));
+// console.log(ht.set("olive", "#808000"));
+// console.log(ht.set("salmon", "#FA8072"));
+// console.log(ht.set("lightcoral", "#F08080"));
+// console.log(ht.set("mediumvioletred", "#C71585"));
+// console.log(ht.set("plum", "#DDA0DD"));
+// console.log(ht.set("purple", "#DDA0DD"));
+// console.log(ht.set("violet", "#DDA0DD"));
+// console.log(ht.values());
+// console.log(ht.keys());
+class Graph {
+  constructor() {
+    this.adjacencyList = {};
+  }
+  addVertex(vertex) {
+    if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
+    return this.adjacencyList;
+  }
+  addEdges(vertex, edge) {
+    if (this.adjacencyList[vertex] || this.adjacencyList[edge]) {
+      this.adjacencyList[vertex].push(edge);
+
+      this.adjacencyList[edge].push(vertex);
+    }
+    return this.adjacencyList;
+  }
+
+  removeEdge(index, vertex) {
+    this.adjacencyList[index] = this.adjacencyList[index].filter(
+      (v1) => v1 !== vertex
+    );
+    this.adjacencyList[vertex] = this.adjacencyList[vertex].filter(
+      (v1) => v1 !== index
+    );
+    return this.adjacencyList;
+  }
+  removeVertex(index) {
+    while (this.adjacencyList[index].length) {
+      // console.log();
+      let newAdjacencyList = this.adjacencyList[index].pop();
+
+
+      
+    }
+
+    return this.adjacencyList;
+  }
 }
-let li = new maxBinaryTree();
-console.log(li.insert(41));
 
+let li = new Graph();
+console.log(li.addVertex("A"));
+console.log(li.addVertex("B"));
+console.log(li.addVertex("C"));
+console.log(li.addVertex("D"));
 
+console.log(li.addEdges("A", "C"));
+console.log(li.addEdges("A", "B"));
+console.log(li.addEdges("B", "D"));
+console.log(li.addEdges("D", "C"));
+console.log(li.removeEdge("B", "D"));
+console.log(li.removeVertex("B"));
 
-console.log(li.insert(39));
-console.log(li.insert(33));
-console.log(li.insert(18));
-console.log(li.insert(27));
-console.log(li.insert(12));
-console.log(li.insert(55));
-// console.log(li.extractMax());
-
+while (2) {
+  // console.log("jsssssss")
+}
