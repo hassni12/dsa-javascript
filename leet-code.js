@@ -38,3 +38,22 @@
 //   return result;
 // }
 // console.log(containerWater([1, 8, 6, 2, 5, 4, 8, 3, 7]));
+function sum(nums){
+    sorted=nums.sort((a,b)=>a-b)
+    let l=0 
+    let r=nums.length-1
+    while (l<r) {
+        if (nums[l] + nums[r]!==0) {
+            if (nums[l] + nums[r]<0){
+                l++ 
+            }else{
+                r--
+            }
+    }else{
+        return [nums[l],nums[r]]
+    }
+    // console.log(sorted);
+
+    }
+}
+console.log(sum([-1,0,1,2,-1,-4]));
