@@ -143,12 +143,15 @@
 
 arr=[5,4,-1,7,8]
 
-let sum=0
+let maxArr=[]
 for(var i=0; i<arr.length; i++) {
-  for (let  j=i+1; j<arr.length; j++) {
-    sum+=arr[i]+arr[j]
-console.log(sum)
+  let sum=0
+  for (let  j=i; j<arr.length; j++) {
+    maxArr.push(sum+=arr[j])
 
 
-  }    
+  } 
+
 }
+
+     console.log(Math.max(...maxArr))
