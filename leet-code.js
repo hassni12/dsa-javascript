@@ -33,19 +33,19 @@
 //     for (var j = i + 1; j < nums.length; j++) {
 //       result = Math.max(result, Math.min(nums[j], nums[i]) * (j - i));
 //     }
-    
+
 //   }
 //   return result;
 // }
 // console.log(containerWater([1, 8, 6, 2, 5, 4, 8, 3, 7]));
 // function sum(nums){
 //     sorted=nums.sort((a,b)=>a-b)
-//     let l=0 
+//     let l=0
 //     let r=nums.length-1
 //     while (l<r) {
 //         if (nums[l] + nums[r]!==0) {
 //             if (nums[l] + nums[r]<0){
-//                 l++ 
+//                 l++
 //             }else{
 //                 r--
 //             }
@@ -61,7 +61,7 @@
 //     constructor(size=53){
 //       this.keyMap = new Array(size);
 //     }
-  
+
 //     _hash(key) {
 //       let total = 0;
 //       let WEIRD_PRIME = 31;
@@ -118,40 +118,53 @@
 //       return valuesArr;
 //     }
 //   }
-  
+
 //   let ht = new HashTable(17);
-  
-//  console.log( ht.set("maroon","#800000")) 
-//  console.log(ht.set("yellow","#FFFF00"))  
-//  console.log(ht.set("olive","#808000")) 
-//  console.log(ht.set("salmon","#FA8072")) 
+
+//  console.log( ht.set("maroon","#800000"))
+//  console.log(ht.set("yellow","#FFFF00"))
+//  console.log(ht.set("olive","#808000"))
+//  console.log(ht.set("salmon","#FA8072"))
 //  console.log( ht.set("lightcoral","#F08080"))
-//  console.log(ht.set("mediumvioletred","#C71585")) 
+//  console.log(ht.set("mediumvioletred","#C71585"))
 //  console.log( ht.set("plum","#DDA0DD"))
-//  console.log(ht.set("purple","#DDA0DD")) 
-//  console.log(ht.set("violet","#DDA0DD")) 
-  
-  
+//  console.log(ht.set("purple","#DDA0DD"))
+//  console.log(ht.set("violet","#DDA0DD"))
+
 // //   ht.keys().forEach(function(key){
 // //     console.log(ht.get(key));
 //   })
 
+// arr = [5, 4, -1, 7, 8];
 
+// let maxArr = [];
+// for (var i = 0; i < arr.length; i++) {
+//   let sum = 0;
+//   for (let j = i; j < arr.length; j++) {
+//     maxArr.push((sum += arr[j]));
+//   }
+// }
 
+// console.log(Math.max(...maxArr));
 
-
-
-arr=[5,4,-1,7,8]
-
-let maxArr=[]
-for(var i=0; i<arr.length; i++) {
-  let sum=0
-  for (let  j=i; j<arr.length; j++) {
-    maxArr.push(sum+=arr[j])
-
-
-  } 
-
+// function match(arr){
+// for (var i = 0; i < arr.length; i++) {
+//   for (var j = i+1; j < arr.length; j++) {
+//     if (arr[i]=== arr[j]) {
+//     return true
+//     }else {
+//       return false
+//     }
+//   }
+// }
+// }
+//
+function match(arr) {
+ for(let i=0; i<arr.length; i++) {
+    if (arr[i] === arr[i+1]) {
+      return true
+    } 
+    return false
+  }
 }
-
-     console.log(Math.max(...maxArr))
+console.log(match([1, 1, 1, 3, 3, 4, 3, 2, 4, 2]));

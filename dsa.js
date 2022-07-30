@@ -1448,20 +1448,19 @@
 //   console.log(li.dfsIterative("A"));
 class Priorityqueue {
   constructor() {
-    this.value=[];
+    this.value = [];
   }
-  enqueue(value,priority) {
-    this.value.push({value,priority});
-    this.sort()
+  enqueue(value, priority) {
+    this.value.push({ value, priority });
+    this.sort();
   }
-  dequeue(){
-   return this.value.shift()
+  dequeue() {
+    return this.value.shift();
   }
-  sort(){
-    this.value.sort((a,b)=>a.priority-b.priority)
+  sort() {
+    this.value.sort((a, b) => a.priority - b.priority);
   }
 }
-
 class WeightedGraph {
   constructor() {
     this.adjacencyList = [];
@@ -1483,7 +1482,6 @@ console.log(li.addVertex("A"));
 console.log(li.addVertex("B"));
 console.log(li.addVertex("C"));
 console.log(li.addVertex("D"));
-
 console.log(li.addEdges("A", "C", 11));
 console.log(li.addEdges("A", "B", 34));
 console.log(li.addEdges("B", "D", 14));
